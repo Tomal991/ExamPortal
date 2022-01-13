@@ -1,1 +1,24 @@
-<p>navbar works!</p>
+<mat-toolbar color="primary">
+  <button
+    routerLink="/"
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span routerLink="/">Exam</span>
+  <span class="example-spacer"></span>
+
+  <button
+    mat-raised-button
+    routerLink="/login"
+    class="example-icon favorite-icon mr20"
+  >
+    Login
+  </button>
+
+  <button routerLink="/signup" mat-raised-button class="example-icon mr10">
+    Signup
+  </button>
+</mat-toolbar>

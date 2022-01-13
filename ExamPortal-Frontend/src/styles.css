@@ -11,3 +11,33 @@ body {
 .text-center {
   text-align: center;
 }
+.full-width{
+  width: 100%;
+}
+.mr20{
+  margin-right: 20px !important;
+}
+.ml20{
+  margin-left: 20px !important;
+}
+.mt20{
+  margin-top: 20px;
+}
+.mb20{
+  margin-bottom: 20px;
+}
+
+
+.mr10{
+  margin-right: 10px;
+}
+.ml10{
+  margin-left: 10px;
+}
+.mt10{
+  margin-top: 10px;
+}
+.mb10{
+  margin-bottom: 10px;
+}
+

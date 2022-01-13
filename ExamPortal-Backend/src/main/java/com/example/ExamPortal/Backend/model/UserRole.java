@@ -4,7 +4,6 @@ package com.example.ExamPortal.Backend.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "userRole")
 public class UserRole {
 
     @Id
