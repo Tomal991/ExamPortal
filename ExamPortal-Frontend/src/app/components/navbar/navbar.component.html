@@ -11,14 +11,25 @@
   <span class="example-spacer"></span>
 
   <button
-    mat-raised-button
+    *ngIf="!isLoggedIn"
+    mat-button
     routerLink="/login"
-    class="example-icon favorite-icon mr20"
+    class="mr10 radius"
   >
     Login
   </button>
 
-  <button routerLink="/signup" mat-raised-button class="example-icon mr10">
+  <button
+    *ngIf="!isLoggedIn"
+    routerLink="/signup"
+    mat-button
+    class="mr10 radius"
+  >
     Signup
+  </button>
+  <button *ngIf="isLoggedIn &&user" mat-button class="mr10 radius">{{user.username}}</button>
+
+  <button *ngIf="isLoggedIn" (click)="logout()" mat-button class="mr10 radius">
+    Logout
   </button>
 </mat-toolbar>
