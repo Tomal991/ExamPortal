@@ -1,6 +1,7 @@
 package com.example.ExamPortal.Backend.controller;
 
 import com.example.ExamPortal.Backend.config.JwtUtil;
+import com.example.ExamPortal.Backend.helper.UserFoundException;
 import com.example.ExamPortal.Backend.helper.UserNotFoundException;
 import com.example.ExamPortal.Backend.model.JwtRequest;
 import com.example.ExamPortal.Backend.model.JwtResponse;
@@ -75,5 +76,11 @@ public class AuthenticateController {
     public User getCurrentUser(Principal principal) {
         return ((User) this.userDetailsService.loadUserByUsername(principal.getName()));
     }
+
+    @ExceptionHandler(UserFoundException.class)
+    public ResponseEntity<?> exceptionHandler(UserFoundException ex) {
+        return ResponseEntity.ok(ex.getMessage());
+    }
+
 }
 

@@ -1,5 +1,6 @@
 package com.example.ExamPortal.Backend.service;
 
+import com.example.ExamPortal.Backend.helper.UserFoundException;
 import com.example.ExamPortal.Backend.model.User;
 import com.example.ExamPortal.Backend.model.UserRole;
 import com.example.ExamPortal.Backend.repository.RoleRepository;
@@ -25,7 +26,7 @@ public class UserServiceImpl implements UserService {
         User local = this.userRepository.findByUsername(user.getUsername());
         if (local != null) {
             System.out.println("User already exists");
-            throw new Exception("User already exists");
+            throw new UserFoundException();
 
         } else {
 
