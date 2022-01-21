@@ -4,13 +4,13 @@ import javax.persistence.*;
 
 @Entity
 public class Question {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
-    private Long quesid;
+    private Long quesId;
     private String content;
-    private String image;
 
+    private String image;
     private String option1;
     private String option2;
     private String option3;
@@ -18,18 +18,19 @@ public class Question {
 
     private String answer;
 
+
     @ManyToOne(fetch = FetchType.EAGER)
     private Quiz quiz;
 
     public Question() {
     }
 
-    public Long getQuesid() {
-        return quesid;
+    public Long getQuesId() {
+        return quesId;
     }
 
-    public void setQuesid(Long quesid) {
-        this.quesid = quesid;
+    public void setQuesId(Long quesId) {
+        this.quesId = quesId;
     }
 
     public String getContent() {

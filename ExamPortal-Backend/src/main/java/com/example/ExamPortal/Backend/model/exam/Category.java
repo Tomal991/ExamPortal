@@ -3,6 +3,7 @@ package com.example.ExamPortal.Backend.model.exam;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -19,13 +20,11 @@ public class Category {
 
     private String description;
 
-    @OneToMany(mappedBy = "category", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JsonIgnore
-    private Set<Quiz> quizzes = new LinkedHashSet<>();
-
+    private Set<Quiz> quizzes=new LinkedHashSet<>();
 
     public Category() {
-
     }
 
     public Category(String title, String description) {
@@ -33,12 +32,12 @@ public class Category {
         this.description = description;
     }
 
-    public Long getId() {
+    public Long getCid() {
         return cid;
     }
 
-    public void setId(Long id) {
-        this.cid = id;
+    public void setCid(Long cid) {
+        this.cid = cid;
     }
 
     public String getTitle() {
@@ -56,6 +55,4 @@ public class Category {
     public void setDescription(String description) {
         this.description = description;
     }
-
-
 }
