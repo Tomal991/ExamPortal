@@ -27,15 +27,15 @@ public class ExamPortalBackendApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-//        try {
-        System.out.println("starting");
-////
-//            User user = new User();
+//       try {
+//        System.out.println("starting");
+//
+//           User user = new User();
 //
 //            user.setFirstName("tomal");
-//            user.setLastName("991");
-//            user.setUsername("tomal991");
-//            user.setPassword(this.bCryptPasswordEncoder.encode("123"));
+//            user.setLastName("999");
+//            user.setUsername("tomal999");
+//            user.setPassword(this.bCryptPasswordEncoder.encode("999"));
 //            user.setEmail("abc@gmail.com");
 //            user.setProfile("default.png");
 //
@@ -57,7 +57,7 @@ public class ExamPortalBackendApplication implements CommandLineRunner {
 //
 //        } catch (UserFoundException e) {
 //            e.printStackTrace();
-//        }
+//      }
     }
 
 }

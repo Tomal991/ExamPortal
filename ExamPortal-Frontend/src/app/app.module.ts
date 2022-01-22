@@ -26,7 +26,14 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { MatListModule } from '@angular/material/list';
 import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
 import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.component';
-
+import { ViewCategoryComponent } from './components/category/view-category/view-category.component';
+import { AddCategoryComponent } from './components/category/add-category/add-category.component';
+import { ViewQuizComponent } from './components/quiz/view-quiz/view-quiz.component';
+import { AddQuizComponent } from './components/quiz/add-quiz/add-quiz.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -41,6 +48,10 @@ import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.componen
     ProfileComponent,
     SidebarComponent,
     AdminHomeComponent,
+    ViewCategoryComponent,
+    AddCategoryComponent,
+    ViewQuizComponent,
+    AddQuizComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +68,10 @@ import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.componen
     MatIconModule,
     MatCardModule,
     MatListModule,
+    MatGridListModule,
+    MatDividerModule,
+    MatSlideToggleModule,
+    MatSelectModule,
   ],
   providers: [authInterceptorProvider],
   bootstrap: [AppComponent],

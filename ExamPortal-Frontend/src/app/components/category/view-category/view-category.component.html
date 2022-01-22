@@ -1,0 +1,13 @@
+<div class="mat-headline text-center">All Categories</div>
+<div class="container ml20">
+  <div class="row">
+    <div class="col-4" *ngFor="let cat of categories">
+      <mat-card>
+        <mat-card-content>
+          <div class="mat-title">{{ cat.title }}</div>
+          <div class="mat-caption">{{ cat.description }}</div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddCategoryComponent } from './components/category/add-category/add-category.component';
+import { ViewCategoryComponent } from './components/category/view-category/view-category.component';
+import { AddQuizComponent } from './components/quiz/add-quiz/add-quiz.component';
+import { ViewQuizComponent } from './components/quiz/view-quiz/view-quiz.component';
 import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -21,13 +25,18 @@ const routes: Routes = [
     canActivate: [AdminGuard],
     children: [
       {
-        path: 'profile',
-        component: ProfileComponent,
-      },
-      {
         path: '',
         component: AdminHomeComponent,
       },
+      {
+        path: 'profile',
+        component: ProfileComponent,
+      },
+     
+      { path: 'add-category', component: AddCategoryComponent },
+      { path: 'view-category', component: ViewCategoryComponent },
+      { path: 'add-quiz', component: AddQuizComponent },
+      { path: 'view-quiz', component: ViewQuizComponent },
     ],
   },
   {

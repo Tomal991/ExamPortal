@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/quiz")
+@CrossOrigin("*")
 public class QuizController {
     @Autowired
     private QuizService quizService;

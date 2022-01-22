@@ -1,14 +1,27 @@
-<mat-card>
-  <mat-action-list>
+<div class="container">
+  <mat-action-list class="mt20">
     <div mat-subheader>Menu</div>
+    <mat-divider></mat-divider>
 
-    <mat-list-item  routerLink="/admin"> <mat-icon class="mr10">home</mat-icon>Home</mat-list-item>
+    <mat-list-item routerLink="/admin">
+      <mat-icon class="mr10">home</mat-icon>Home</mat-list-item
+    >
     <mat-list-item routerLink="/admin/profile">
       <mat-icon class="mr10">account_circle</mat-icon>Profile</mat-list-item
     >
-    <mat-list-item  routerLink="/admin"> <mat-icon class="mr10">list</mat-icon>Catagories</mat-list-item>
-    <mat-list-item  routerLink="/admin"> <mat-icon class="mr10">add</mat-icon>Add Catagory</mat-list-item>
-    <mat-list-item  routerLink="/admin"> <mat-icon class="mr10">list</mat-icon>Quizzes</mat-list-item>
-    <mat-list-item  routerLink="/admin"> <mat-icon class="mr10">add</mat-icon>Add Quiz</mat-list-item>
+    <mat-list-item routerLink="/admin/view-category">
+      <mat-icon class="mr10">list</mat-icon>Category</mat-list-item
+    >
+    <mat-list-item routerLink="/admin/add-category">
+      <mat-icon class="mr10">add</mat-icon>Add Category</mat-list-item
+    >
+    <mat-list-item routerLink="/admin/view-quiz">
+      <mat-icon class="mr10">list</mat-icon>Quizzes</mat-list-item
+    >
+    <mat-list-item routerLink="/admin/add-quiz">
+      <mat-icon class="mr10">add</mat-icon>Add Quiz</mat-list-item
+    >
+    <mat-divider></mat-divider>
   </mat-action-list>
-</mat-card>
+</div>
+
