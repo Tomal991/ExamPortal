@@ -1,13 +1,23 @@
-<div class="mat-headline text-center">All Categories</div>
-<div class="container ml20">
-  <div class="row">
-    <div class="col-4" *ngFor="let cat of categories">
-      <mat-card>
-        <mat-card-content>
+<mat-card>
+  <div class="container text-center">
+    <div class="mat-headline">All Categories</div>
+    <div class="row">
+      <div class="col-4" *ngFor="let cat of categories">
+        <mat-card class="card">
+          <img
+            mat-card-image
+            src="../../../../assets/php.png"
+            alt="php"
+            class="image"
+          />
           <div class="mat-title">{{ cat.title }}</div>
-          <div class="mat-caption">{{ cat.description }}</div>
-        </mat-card-content>
-      </mat-card>
+          <div class="mat-subheading-1">{{ cat.description }}</div>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="updateCategory(cat.cid)">Update</button>
+            <button mat-raised-button color="warn" (click)="deleteCategory(cat.cid)">Delete</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
     </div>
   </div>
-</div>
+</mat-card>

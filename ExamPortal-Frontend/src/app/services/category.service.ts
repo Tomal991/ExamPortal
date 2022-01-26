@@ -11,8 +11,18 @@ export class CategoryService {
   public getCategories() {
     return this.http.get(`${baseUrl}`);
   }
-  public addCategories(data:any) {
+  public getCategory(cid: any) {
+    return this.http.get(`${baseUrl}${cid}`);
+  }
+  public addCategory(data: any) {
     console.log(data);
     return this.http.post(`${baseUrl}`, data);
+  }
+  public deleteCategory(cid: any) {
+    return this.http.delete(`${baseUrl}${cid}`);
+  }
+  public updateCategory(data: any) {
+    console.log(data);
+    return this.http.put(`${baseUrl}`, data);
   }
 }

@@ -8,7 +8,7 @@ const baseUrl = 'http://localhost:8080/quiz/';
 export class QuizService {
   constructor(private http: HttpClient) {}
 
-  public getQuiz() {
+  public getAllQuiz() {
     return this.http.get(`${baseUrl}`);
   }
   public addQuiz(data: any) {
@@ -17,5 +17,11 @@ export class QuizService {
   }
   public deleteQuiz(qid: any) {
     return this.http.delete(`${baseUrl}${qid}`);
+  }
+  public getQuiz(qid: any) {
+    return this.http.get(`${baseUrl}${qid}`);
+  }
+  public updateQuiz(data: any) {
+    return this.http.put(`${baseUrl}`, data);
   }
 }

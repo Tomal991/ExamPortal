@@ -1,10 +1,10 @@
 <mat-card>
-  <div class="mat-headline text-center">Add Category</div>
+  <div class="mat-headline text-center">Update Category</div>
 
   <div class="container">
     <div class="row">
       <div class="col-md-6 offset-md-3">
-        <form (ngSubmit)="formSubmit()">
+        <form *ngIf="categories" (ngSubmit)="updateCategory()">
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Title</mat-label>
             <input
@@ -28,7 +28,7 @@
             ></textarea>
           </mat-form-field>
           <button mat-raised-button color="primary" class="full-width">
-            <mat-icon class="mr-2">add</mat-icon>Add Category
+            <mat-icon class="mr-2">edit</mat-icon>Update Category
           </button>
         </form>
       </div>

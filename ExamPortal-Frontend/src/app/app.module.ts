@@ -34,6 +34,13 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
+import { UpdateQuizComponent } from './components/quiz/update-quiz/update-quiz.component';
+import { ViewQuestionsComponent } from './components/question/view-questions/view-questions.component';
+import { AddQuestionsComponent } from './components/question/add-questions/add-questions.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { UpdateQuestionComponent } from './components/question/update-question/update-question.component';
+import { UpdateCategoryComponent } from './components/category/update-category/update-category.component';
+
 
 @NgModule({
   declarations: [
@@ -52,9 +59,15 @@ import { MatSelectModule } from '@angular/material/select';
     AddCategoryComponent,
     ViewQuizComponent,
     AddQuizComponent,
+    UpdateQuizComponent,
+    ViewQuestionsComponent,
+    AddQuestionsComponent,
+    UpdateQuestionComponent,
+    UpdateCategoryComponent,
   ],
   imports: [
-    BrowserModule,
+ 
+  BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
@@ -72,6 +85,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatDividerModule,
     MatSlideToggleModule,
     MatSelectModule,
+    MatSidenavModule
   ],
   providers: [authInterceptorProvider],
   bootstrap: [AppComponent],

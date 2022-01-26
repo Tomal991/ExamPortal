@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddCategoryComponent } from './components/category/add-category/add-category.component';
+import { UpdateCategoryComponent } from './components/category/update-category/update-category.component';
 import { ViewCategoryComponent } from './components/category/view-category/view-category.component';
+import { AddQuestionsComponent } from './components/question/add-questions/add-questions.component';
+import { UpdateQuestionComponent } from './components/question/update-question/update-question.component';
+import { ViewQuestionsComponent } from './components/question/view-questions/view-questions.component';
 import { AddQuizComponent } from './components/quiz/add-quiz/add-quiz.component';
+import { UpdateQuizComponent } from './components/quiz/update-quiz/update-quiz.component';
 import { ViewQuizComponent } from './components/quiz/view-quiz/view-quiz.component';
 import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
@@ -25,7 +30,7 @@ const routes: Routes = [
     canActivate: [AdminGuard],
     children: [
       {
-        path: '',
+        path: 'home',
         component: AdminHomeComponent,
       },
       {
@@ -35,8 +40,14 @@ const routes: Routes = [
      
       { path: 'add-category', component: AddCategoryComponent },
       { path: 'view-category', component: ViewCategoryComponent },
+      { path: 'update-category/:cid', component: UpdateCategoryComponent },
       { path: 'add-quiz', component: AddQuizComponent },
       { path: 'view-quiz', component: ViewQuizComponent },
+      { path: 'update-quiz/:qid', component: UpdateQuizComponent },
+      { path: 'add-question/:qid/:qtitle', component: AddQuestionsComponent },
+      { path: 'view-question/:qid/:qtitle', component: ViewQuestionsComponent },
+      { path: 'update-question/:quesId', component: UpdateQuestionComponent },
+      
     ],
   },
   {

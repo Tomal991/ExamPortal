@@ -8,9 +8,7 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-.text-center {
-  text-align: center;
-}
+
 .full-width {
   width: 100%;
 }
@@ -37,5 +35,18 @@ body {
   margin-top: 10px !important;
 }
 .mb10 {
+  margin-bottom: 10px !important;
+}
+
+.mx10 {
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+}
+.mx20 {
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+}
+.my10 {
+  margin-top: 10px !important;
   margin-bottom: 10px !important;
 }

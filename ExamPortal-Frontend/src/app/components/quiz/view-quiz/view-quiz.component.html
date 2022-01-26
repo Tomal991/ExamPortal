@@ -1,22 +1,38 @@
-<div class="mat-headline text-center mt10">All Quizzes</div>
-<mat-card class="mb20 ml20" *ngFor="let q of quiz">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{ q.title }}</mat-card-title>
-    <mat-card-subtitle>{{ q.category.title }}</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <div>{{ q.description }}</div>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button outlined color="warn" class="mx-2">
-      Questions
-    </button>
-    <button mat-stroked-button color="warn">
-      Questions: {{ q.numberOfQuestions }}
-    </button>
-    <button mat-stroked-button color="warn">Marks: {{ q.maxMarks }}</button>
-    <button mat-flat-button color="warn" class="mr10">Attempts:</button>
-    <button mat-flat-button color="warn" (click)="deleteQuiz(q.qid)">DELETE</button>
-  </mat-card-actions>
+<mat-card>
+  <div class="mat-title text-center">All Quizzes</div>
+  <mat-card class="mb-2" *ngFor="let quiz of quiz">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ quiz.title }}</mat-card-title>
+      <mat-card-subtitle>{{ quiz.category.title }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="description">
+      <div>{{ quiz.description }}</div>
+    </mat-card-content>
+
+    <div class="container ml-4">
+      <button
+        [routerLink]="'/admin/view-question/' + quiz.qid + '/' + quiz.title"
+        mat-flat-button
+        outlined
+        color="warn"
+      >
+        Questions
+      </button>
+      <button mat-stroked-button color="warn">
+        Total Question {{ quiz.numberOfQuestions }}
+      </button>
+      <button mat-stroked-button color="warn">Marks {{ quiz.maxMarks }}</button>
+      <button mat-flat-button [ngClass]="quiz.active ? 'green' : 'red'">
+        {{ quiz.active }}
+      </button>
+      <button mat-flat-button color="warn">Attempt:</button>
+      <button mat-flat-button color="warn" (click)="updateQuiz(quiz.qid)">
+        Update
+      </button>
+      <button mat-flat-button color="warn" (click)="deleteQuiz(quiz.qid)">
+        Delete
+      </button>
+    </div>
+  </mat-card>
 </mat-card>

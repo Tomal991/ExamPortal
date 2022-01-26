@@ -16,6 +16,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/question")
+@CrossOrigin("*")
 public class QuestionController {
 
     @Autowired
@@ -46,6 +47,16 @@ public class QuestionController {
         }
         Collections.shuffle(list);
         return ResponseEntity.ok(list);
+    }
+
+
+    @GetMapping("/quiz/all/{qid}")
+    public ResponseEntity<?> getQuestionsOfQuizAdmin(@PathVariable("qid") Long qid) {
+        Quiz quiz=new Quiz();
+        quiz.setQid(qid);
+        Set<Question> questionsofQuiz=questionService.getQuestionsOfQuiz(quiz);
+        return ResponseEntity.ok(questionsofQuiz);
+
     }
 
     @GetMapping("/{quesid}")

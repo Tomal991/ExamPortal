@@ -1,54 +1,47 @@
-<mat-card class="mt10" *ngIf="user">
-  <div class="bootstrap-wrapper">
-    <div class="container text-center">
-      <div class="row">
-        <div class="col-md-10 offset-md-1">
-          <div class="mat-headline">Profile Details</div>
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH4Ui8-aKNWj9bB8P5rLObzIRt30lQ-wpIOg&usqp=CAU"
-            class="profile_pic"
-          />
-          <div class="mat-headline">
-            {{ user.firstName }}{{ user.lastName }}
-          </div>
-          <mat-card>
-            <table class="table">
-              <tr>
-                <td><h3>Username</h3></td>
-                <td>
-                  <h4>{{ user.username }}</h4>
-                </td>
-              </tr>
-              <tr>
-                <td><h3>UserID</h3></td>
-                <td>
-                  <h4>CSE{{ user.id }}</h4>
-                </td>
-              </tr>
-              <tr>
-                <td><h3>Phone</h3></td>
-                <td>
-                  <h4>{{ user.phone }}</h4>
-                </td>
-              </tr>
-              <tr>
-                <td><h3>Role</h3></td>
-                <td>
-                  <h4>{{ user.authorities[0].authority }}</h4>
-                </td>
-              </tr>
-              <tr>
-                <td><h3>Status</h3></td>
-                <td>
-                  <h4>{{ user.enabled ? "Active" : "Non Active" }}</h4>
-                </td>
-              </tr>
-            </table>
-            <mat-card-actions>
-              <button mat-raised-button color="primary">UPDATE</button>
-            </mat-card-actions>
-          </mat-card>
-        </div>
+<mat-card *ngIf="user">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <div class="mat-title">Profile Details</div>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH4Ui8-aKNWj9bB8P5rLObzIRt30lQ-wpIOg&usqp=CAU"
+          class="profile_pic"
+        />
+        <div class="mat-headline">{{ user.firstName }}{{ user.lastName }}</div>
+        <mat-card>
+          <table class="table">
+            <tr>
+              <th>Username</th>
+              <td>
+                {{ user.username }}
+              </td>
+            </tr>
+            <tr>
+              <th>UserID</th>
+              <td>CSE{{ user.id }}</td>
+            </tr>
+            <tr>
+              <th>Phone</th>
+              <td>
+                {{ user.phone }}
+              </td>
+            </tr>
+            <tr>
+              <th>Role</th>
+              <td>
+                {{ user.authorities[0].authority }}
+              </td>
+            </tr>
+            <tr>
+              <th>Status</th>
+              <td>
+                {{ user.enabled ? "Active" : "Non Active" }}
+              </td>
+            </tr>
+          </table>
+
+          <button mat-raised-button color="primary" class="btn">UPDATE</button>
+        </mat-card>
       </div>
     </div>
   </div>

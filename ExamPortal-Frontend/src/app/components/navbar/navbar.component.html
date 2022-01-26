@@ -27,7 +27,14 @@
   >
     Signup
   </button>
-  <button *ngIf="isLoggedIn &&user" mat-button class="mr10 radius" routerLink="/admin/profile">{{user.username}}</button>
+  <button
+    *ngIf="isLoggedIn && user"
+    mat-button
+    class="mr10 radius"
+    routerLink="/admin/profile"
+  >
+    {{ user.username }}
+  </button>
 
   <button *ngIf="isLoggedIn" (click)="logout()" mat-button class="mr10 radius">
     Logout
