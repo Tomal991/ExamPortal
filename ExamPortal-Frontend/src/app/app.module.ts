@@ -40,7 +40,7 @@ import { AddQuestionsComponent } from './components/question/add-questions/add-q
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { UpdateQuestionComponent } from './components/question/update-question/update-question.component';
 import { UpdateCategoryComponent } from './components/category/update-category/update-category.component';
-
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
@@ -85,9 +85,12 @@ import { UpdateCategoryComponent } from './components/category/update-category/u
     MatDividerModule,
     MatSlideToggleModule,
     MatSelectModule,
-    MatSidenavModule
+    MatSidenavModule,
+    CKEditorModule,
+  
   ],
-  providers: [authInterceptorProvider],
+  
+  providers: [authInterceptorProvider,],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

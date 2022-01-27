@@ -12,10 +12,8 @@
       </button>
 
       <mat-card *ngFor="let ques of question; let i = index" class="mb-2">
-        <p>
-          <b>{{ i + 1 }}) </b>
-          <span> {{ ques.content }}</span>
-        </p>
+        <span [innerHTML]="ques.content"></span>
+
         <div class="container">
           <div class="row">
             <div class="col-md-6">

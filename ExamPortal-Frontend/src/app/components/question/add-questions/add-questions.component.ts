@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Question } from 'src/app/class/question';
 import { QuestionService } from 'src/app/services/question.service';
 import Swal from 'sweetalert2';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-add-questions',
@@ -10,9 +11,12 @@ import Swal from 'sweetalert2';
   styleUrls: ['./add-questions.component.css'],
 })
 export class AddQuestionsComponent implements OnInit {
+  public Editor = ClassicEditor;
+
   question: Question = new Question();
   qid: any;
   qtitle: any;
+
   constructor(
     private route: ActivatedRoute,
     private questionService: QuestionService,
@@ -24,10 +28,8 @@ export class AddQuestionsComponent implements OnInit {
     this.qtitle = this.route.snapshot.params['qtitle'];
     this.question.quiz['qid'] = this.qid;
   }
+
   questionSubmit() {
-    if (this.question.content.trim() == '' || this.question.content == null) {
-      return;
-    }
     if (this.question.option1.trim() == '' || this.question.option1 == null) {
       return;
     }

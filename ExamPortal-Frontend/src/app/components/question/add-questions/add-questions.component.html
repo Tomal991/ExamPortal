@@ -8,7 +8,7 @@
         </mat-card-subtitle>
         <mat-card-content>
           <form (ngSubmit)="questionSubmit()">
-            <mat-form-field class="full-width" appearance="outline">
+            <!-- <mat-form-field class="full-width" appearance="outline">
               <mat-label>Question</mat-label>
               <textarea
                 matInput
@@ -18,8 +18,15 @@
                 [(ngModel)]="question.content"
                 name="content"
               ></textarea>
-            </mat-form-field>
-            <div class="row">
+            </mat-form-field> -->
+            <!-- {{ question | json }} -->
+            <ckeditor
+              [editor]="Editor"
+              [(ngModel)]="question.content"
+              name="content"
+            ></ckeditor>
+
+            <div class="row mt-3">
               <div class="col-md-6">
                 <mat-form-field class="full-width" appearance="outline">
                   <mat-label>Option 1</mat-label>
@@ -73,7 +80,12 @@
             </div>
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>Select Answer</mat-label>
-              <mat-select matInput required [(ngModel)]="question.answer" name="answer">
+              <mat-select
+                matInput
+                required
+                [(ngModel)]="question.answer"
+                name="answer"
+              >
                 <mat-option *ngIf="question.option1" [value]="question.option1">
                   {{ question.option1 }}</mat-option
                 >
