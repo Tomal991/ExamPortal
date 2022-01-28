@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -19,7 +20,9 @@ export class SidebarComponent implements OnInit {
     { linkTitle: 'Add Quiz', link: '/admin/add-quiz', icon: 'add' },
   ];
 
-  constructor() {}
+  constructor(private loginService: LoginService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
 }

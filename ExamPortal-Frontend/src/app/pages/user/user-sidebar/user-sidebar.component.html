@@ -1,0 +1,13 @@
+<mat-list>
+  <mat-action-list>
+    <mat-list-item
+      *ngFor="let item of listItems"
+      [routerLink]="item.link"
+      routerLinkActive="active"
+    >
+      <mat-icon matListIcon>{{ item.icon }}</mat-icon>
+
+      {{ item.linkTitle }}
+    </mat-list-item>
+  </mat-action-list>
+</mat-list>

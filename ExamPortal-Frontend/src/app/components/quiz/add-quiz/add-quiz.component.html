@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-8 offset-md-2">
         <form (ngSubmit)="formSubmit()">
-          <mat-form-field appearance="fill" class="mt20 full-width">
+          <mat-form-field appearance="fill" class="full-width">
             <mat-label>Select Category</mat-label>
             <mat-select [(ngModel)]="quiz.category" name="category">
               <mat-option
@@ -31,7 +31,7 @@
             <textarea
               placeholder="Enter Quiz description here"
               matInput
-              rows="5"
+              rows="4"
               required
               [(ngModel)]="quiz.description"
               name="description"

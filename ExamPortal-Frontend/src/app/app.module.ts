@@ -41,6 +41,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { UpdateQuestionComponent } from './components/question/update-question/update-question.component';
 import { UpdateCategoryComponent } from './components/category/update-category/update-category.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     AddQuestionsComponent,
     UpdateQuestionComponent,
     UpdateCategoryComponent,
+    UserSidebarComponent,
   ],
   imports: [
  

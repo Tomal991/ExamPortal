@@ -51,7 +51,7 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'user-dashboard',
+    path: 'user',
     component: UserDashboardComponent,
     pathMatch: 'full',
     canActivate: [UserGuard],

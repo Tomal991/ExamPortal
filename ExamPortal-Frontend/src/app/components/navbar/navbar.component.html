@@ -1,42 +1,42 @@
 <mat-toolbar color="primary">
-  <button
-    routerLink="/"
-    mat-icon-button
+  <span
+    *ngIf="isLoggedIn"
     class="example-icon"
     aria-label="Example icon-button with menu icon"
+    (click)="drawer.toggle()"
   >
     <mat-icon>menu</mat-icon>
-  </button>
-  <span routerLink="/">Exam</span>
+  </span>
+  <span routerLink="/" class="title">ExamPortal</span>
   <span class="example-spacer"></span>
 
-  <button
-    *ngIf="!isLoggedIn"
-    mat-button
-    routerLink="/login"
-    class="mr10 radius"
-  >
+  <span *ngIf="!isLoggedIn" routerLink="/login" class="mr10 radius">
     Login
-  </button>
+  </span>
 
-  <button
-    *ngIf="!isLoggedIn"
-    routerLink="/signup"
-    mat-button
-    class="mr10 radius"
-  >
+  <span *ngIf="!isLoggedIn" routerLink="/signup" class="mr10 radius">
     Signup
-  </button>
-  <button
+  </span>
+  <span
     *ngIf="isLoggedIn && user"
-    mat-button
     class="mr10 radius"
     routerLink="/admin/profile"
   >
     {{ user.username }}
-  </button>
+  </span>
 
-  <button *ngIf="isLoggedIn" (click)="logout()" mat-button class="mr10 radius">
+  <span *ngIf="isLoggedIn" (click)="logout()" class="mr10 radius">
     Logout
-  </button>
+  </span>
 </mat-toolbar>
+
+<mat-drawer-container class="example-container">
+  <mat-drawer #drawer class="example-sidenav" mode="side" [opened]="isLoggedIn">
+    <app-sidebar *ngIf="isAdmin"></app-sidebar>
+    <app-user-sidebar *ngIf="isNormal"></app-user-sidebar>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <app-dashboard></app-dashboard>
+  </div>
+</mat-drawer-container>
