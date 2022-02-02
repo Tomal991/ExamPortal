@@ -58,7 +58,7 @@ public class QuizController {
         return quizService.getActiveQuizzes();
     }
 
-    @GetMapping("/active/category/{cid}")
+    @GetMapping("/category/active/{cid}")
     public List<Quiz> getActiveQuizzesOfCategory(@PathVariable("cid") Long cid) {
         Category category = new Category();
         category.setCid(cid);
