@@ -15,7 +15,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { InstuctionsOfQuizComponent } from './pages/user/instuctions-of-quiz/instuctions-of-quiz.component';
 import { LoadAllQuizComponent } from './pages/user/load-all-quiz/load-all-quiz.component';
+import { QuizStartComponent } from './pages/user/quiz-start/quiz-start.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { AdminGuard } from './services/admin.guard';
 import { UserGuard } from './services/user.guard';
@@ -38,7 +40,7 @@ const routes: Routes = [
         path: 'profile',
         component: ProfileComponent,
       },
-     
+
       { path: 'add-category', component: AddCategoryComponent },
       { path: 'view-category', component: ViewCategoryComponent },
       { path: 'update-category/:cid', component: UpdateCategoryComponent },
@@ -48,18 +50,27 @@ const routes: Routes = [
       { path: 'add-question/:qid/:qtitle', component: AddQuestionsComponent },
       { path: 'view-question/:qid/:qtitle', component: ViewQuestionsComponent },
       { path: 'update-question/:quesId', component: UpdateQuestionComponent },
-      
     ],
   },
   {
     path: 'user',
     component: UserDashboardComponent,
     canActivate: [UserGuard],
-    children:[
+    children: [
       {
-        path:":cid",component:LoadAllQuizComponent  //cid=categoryId
-      }
-    ]
+        path: ':cid',
+        component: LoadAllQuizComponent, //cid=categoryId
+      },
+      {
+        path: 'instructions/:qid',
+        component: InstuctionsOfQuizComponent,
+      },
+    ],
+  },
+  {
+    path: 'quizStart/:qid',
+    component: QuizStartComponent,
+    canActivate: [UserGuard],
   },
 ];
 

@@ -43,6 +43,8 @@ import { UpdateCategoryComponent } from './components/category/update-category/u
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.component';
 import { LoadAllQuizComponent } from './pages/user/load-all-quiz/load-all-quiz.component';
+import { InstuctionsOfQuizComponent } from './pages/user/instuctions-of-quiz/instuctions-of-quiz.component';
+import { QuizStartComponent } from './pages/user/quiz-start/quiz-start.component';
 
 
 @NgModule({
@@ -69,6 +71,8 @@ import { LoadAllQuizComponent } from './pages/user/load-all-quiz/load-all-quiz.c
     UpdateCategoryComponent,
     UserSidebarComponent,
     LoadAllQuizComponent,
+    InstuctionsOfQuizComponent,
+    QuizStartComponent,
     
   ],
   imports: [
