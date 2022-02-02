@@ -26,12 +26,6 @@ export class NavbarComponent implements OnInit {
     this.loginService.loginStatusSubject.asObservable().subscribe(() => {
       this.isLoggedIn = this.loginService.isLoggedIn();
       this.user = this.loginService.getUser();
-      if (this.loginService.getUserRole() == 'normal') {
-        this.isNormal = true;
-      }
-      if (this.loginService.getUserRole() == 'admin') {
-        this.isAdmin = true;
-      }
     });
   }
 
@@ -40,3 +34,9 @@ export class NavbarComponent implements OnInit {
     window.location.reload();
   }
 }
+// if (this.loginService.getUserRole() == 'admin') {
+//   this.isAdmin = true;
+// }
+// if (this.loginService.getUserRole() == 'normal') {
+//   this.isNormal = true;
+// }

@@ -24,4 +24,13 @@ export class QuizService {
   public updateQuiz(data: any) {
     return this.http.put(`${baseUrl}`, data);
   }
+  public getQuizzesOfCategory(cid: any) {
+    return this.http.get(`${baseUrl}category/${cid}`);
+  }
+  public getActiveQuizzes() {
+    return this.http.get(`${baseUrl}active`);
+  }
+  public getActiveQuizzesOfCategory(cid: any) {
+    return this.http.get(`${baseUrl}category/active/${cid}`);
+  }
 }

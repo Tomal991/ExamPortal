@@ -1,11 +1,13 @@
 package com.example.ExamPortal.Backend.service;
 
+import com.example.ExamPortal.Backend.model.exam.Category;
 import com.example.ExamPortal.Backend.model.exam.Quiz;
 import com.example.ExamPortal.Backend.repository.QuizRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -37,5 +39,20 @@ public class QuizServiceImpl implements QuizService {
     @Override
     public void deleteQuiz(Long qid) {
         quizRepository.deleteById(qid);
+    }
+
+    @Override
+    public List<Quiz> getQuizzesOfCategory(Category category) {
+        return this.quizRepository.findByCategory(category);
+    }
+
+    @Override
+    public List<Quiz> getActiveQuizzes() {
+        return quizRepository.findByActive(true);
+    }
+
+    @Override
+    public List<Quiz> getActiveQuizzesOfCategory(Category category) {
+        return quizRepository.findByCategoryAndActive(category, true);
     }
 }

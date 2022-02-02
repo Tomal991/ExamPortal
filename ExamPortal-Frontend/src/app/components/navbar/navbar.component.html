@@ -1,12 +1,11 @@
 <mat-toolbar color="primary">
-  <span
+  <!-- <span
     *ngIf="isLoggedIn"
     class="example-icon"
     aria-label="Example icon-button with menu icon"
-    (click)="drawer.toggle()"
   >
     <mat-icon>menu</mat-icon>
-  </span>
+  </span> -->
   <span routerLink="/" class="title">ExamPortal</span>
   <span class="example-spacer"></span>
 
@@ -30,13 +29,31 @@
   </span>
 </mat-toolbar>
 
-<mat-drawer-container class="example-container">
+<!-- <mat-drawer-container class="example-container">
   <mat-drawer #drawer class="example-sidenav" mode="side" [opened]="isLoggedIn">
-    <app-sidebar *ngIf="isAdmin"></app-sidebar>
-    <app-user-sidebar *ngIf="isNormal"></app-user-sidebar>
+    <app-sidebar></app-sidebar>
   </mat-drawer>
 
   <div class="example-sidenav-content">
     <app-dashboard></app-dashboard>
   </div>
-</mat-drawer-container>
+</mat-drawer-container> -->
+<!-- <ng-container
+  *ngIf="user.type == 'admin'; then admin; else otheruser">
+</ng-container>
+
+<ng-template #admin>
+  <div>
+    Admin.
+    <li routerLinkActive="active" >
+          <a routerLink="/adminDashboard">
+            <i class="now-ui-icons education_atom"></i>
+            <p>Admin Dashboard</p>
+          </a>
+        </li>
+  </div>
+</ng-template>
+<ng-template #otheruser>
+  <div>
+    other user 
+  </div> -->

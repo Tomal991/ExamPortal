@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from './../../../services/category.service';
 
 @Component({
   selector: 'app-user-sidebar',
@@ -6,14 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-sidebar.component.css'],
 })
 export class UserSidebarComponent implements OnInit {
+  categories: any;
+
   listItems = [
-    { linkTitle: 'Home ', link: '/user/home', icon: 'home' },
-    { linkTitle: 'Profile', link: '/user/profile', icon: 'account_circle' },
-    { linkTitle: 'Category', link: '/user/view-category', icon: 'category' },
-
-    { linkTitle: 'Quizzes', link: '/user/view-quiz', icon: 'list' },
+    { linkTitle: 'Home ', link: '/user', icon: 'home' },
+    { linkTitle: 'All Quizzes', icon: 'account_circle' },
   ];
-  constructor() {}
+  constructor(private categoryService: CategoryService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.categoryService.getCategories().subscribe((data) => {
+      this.categories = data;
+    });
+  }
 }
