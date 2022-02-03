@@ -1,8 +1,17 @@
-<div class="container-fluid p-3" *ngIf="!isSubmit">
+<div class="container-fluid dashboard" *ngIf="!isSubmit">
   <div class="row">
-    <div class="col-md-2"><h3>Instructions</h3></div>
-    <div class="col-md-8">
-      <h1 class="text-center">{{ questions[0].quiz.title }} Quiz</h1>
+    <div class="col-lg-2 col-sm-12 mt-5">
+      <mat-card>
+        <h2 class="text-center">Instructions</h2>
+        <ul>
+          <li>Do not refresh the page</li>
+          <li>You can not go back</li>
+          <li>Careful of the time</li>
+        </ul>
+      </mat-card>
+    </div>
+    <div class="col-lg-8 col-sm-12 mt-1">
+      <h1 class="title">{{ questions[0].quiz.title }} Quiz</h1>
       <mat-card *ngFor="let ques of questions; let i = index" class="mb-2">
         <mat-card-content>
           <p>
@@ -14,43 +23,51 @@
           <br />
           <div class="row">
             <div class="col-md-6">
-              <input
-                type="radio"
-                [value]="ques.option1"
-                [(ngModel)]="ques.givenAnswer"
-                name="{{ i }}"
-              />
-              {{ ques.option1 }}
+              <p>
+                <input
+                  type="radio"
+                  [value]="ques.option1"
+                  [(ngModel)]="ques.givenAnswer"
+                  name="{{ i }}"
+                />
+                {{ ques.option1 }}
+              </p>
             </div>
             <div class="col-md-6">
-              <input
-                type="radio"
-                [value]="ques.option2"
-                [(ngModel)]="ques.givenAnswer"
-                name="{{ i }}"
-              />
-              {{ ques.option2 }}
+              <p>
+                <input
+                  type="radio"
+                  [value]="ques.option2"
+                  [(ngModel)]="ques.givenAnswer"
+                  name="{{ i }}"
+                />
+                {{ ques.option2 }}
+              </p>
             </div>
           </div>
 
-          <div class="row mt-3">
+          <div class="row">
             <div class="col-md-6">
-              <input
-                type="radio"
-                [value]="ques.option3"
-                [(ngModel)]="ques.givenAnswer"
-                name="{{ i }}"
-              />
-              {{ ques.option3 }}
+              <p>
+                <input
+                  type="radio"
+                  [value]="ques.option3"
+                  [(ngModel)]="ques.givenAnswer"
+                  name="{{ i }}"
+                />
+                {{ ques.option3 }}
+              </p>
             </div>
             <div class="col-md-6">
-              <input
-                type="radio"
-                [value]="ques.option4"
-                [(ngModel)]="ques.givenAnswer"
-                name="{{ i }}"
-              />
-              {{ ques.option4 }}
+              <p>
+                <input
+                  type="radio"
+                  [value]="ques.option4"
+                  [(ngModel)]="ques.givenAnswer"
+                  name="{{ i }}"
+                />
+                {{ ques.option4 }}
+              </p>
             </div>
           </div>
         </mat-card-content>
@@ -65,7 +82,26 @@
         Submit
       </button>
     </div>
-    <div class="col-md-2"><mat-card>timer</mat-card></div>
+    <div class="col-lg-2 col-sm-12 mt-5 text-center">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Progress</mat-card-title>
+          <mat-card-subtitle
+            >Quiz will be submitted automatically after the time has
+            finished</mat-card-subtitle
+          >
+        </mat-card-header>
+        <mat-card-content>
+          <h1>{{ getFormattedTime() }}</h1>
+          <mat-spinner
+            class="mx-auto"
+            mode="determinate"
+            [value]="(timer / (this.questions.length * 2 * 60)) * 100"
+          >
+          </mat-spinner>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
 </div>
 
@@ -81,9 +117,14 @@
           <h2>Total marks {{ maximumMarks }}</h2>
           <h2>You attempted {{ attempted }} questions</h2>
         </mat-card-content>
-        <button mat-raised-button color="primary" class="full-width mt-3">
-          Print
-        </button>
+        <div class="container mt-3">
+          <button mat-raised-button color="primary" (click)="print()">
+            Print
+          </button>
+          <button mat-raised-button color="warn" [routerLink]="'/user/all'">
+            Home
+          </button>
+        </div>
       </mat-card>
     </div>
   </div>

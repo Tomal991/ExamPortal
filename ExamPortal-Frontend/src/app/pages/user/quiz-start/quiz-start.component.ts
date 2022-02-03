@@ -16,9 +16,9 @@ export class QuizStartComponent implements OnInit {
   marksGot = 0;
   correctAnswer = 0;
   attempted = 0;
-  maximumMarks=0;
+  maximumMarks = 0;
   isSubmit = false;
-
+  timer = 0;
   constructor(
     private locationStrategy: LocationStrategy,
     private route: ActivatedRoute,
@@ -34,9 +34,11 @@ export class QuizStartComponent implements OnInit {
     this.questionService.getQuestionsOfQuizForUser(this.qid).subscribe(
       (data) => {
         this.questions = data;
+        this.timer = this.questions.length * 2 * 60;
         this.questions.forEach((ques: any) => {
           ques['givenAnswer'] = '';
         });
+        this.startTimer();
       },
       (error) => {}
     );
@@ -62,7 +64,7 @@ export class QuizStartComponent implements OnInit {
         this.questions.forEach((ques: any) => {
           if (ques.givenAnswer == ques.answer) {
             this.correctAnswer++;
-             this.maximumMarks = this.questions[0].quiz.maxMarks;
+            this.maximumMarks = this.questions[0].quiz.maxMarks;
             let eachQuestionMark = this.maximumMarks / this.questions.length;
             this.marksGot += eachQuestionMark;
           }
@@ -78,5 +80,25 @@ export class QuizStartComponent implements OnInit {
         Swal.fire('Changes are not saved', '', 'info');
       }
     });
+  }
+
+  startTimer() {
+    let t = window.setInterval(() => {
+      if (this.timer <= 0) {
+        this.submitQuiz();
+        clearInterval(t);
+      } else {
+        this.timer--;
+      }
+    }, 1000);
+  }
+
+  getFormattedTime() {
+    let mm = Math.floor(this.timer / 60);
+    let ss = this.timer - mm * 60;
+    return `${mm} min : ${ss} sec`;
+  }
+  print(){
+    window.print()
   }
 }

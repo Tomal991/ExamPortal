@@ -1,14 +1,16 @@
-<mat-nav-list>
-  <mat-list-item
-    *ngFor="let item of listItems"
-    [routerLink]="item.link"
-    routerLinkActive="active"
-  >
-    <mat-icon matListIcon>{{ item.icon }}</mat-icon>
+<mat-card>
+  <mat-nav-list>
+    <mat-list-item
+      *ngFor="let item of listItems"
+      [routerLink]="item.link"
+      routerLinkActive="active"
+    >
+      <mat-icon matListIcon>{{ item.icon }}</mat-icon>
 
-    {{ item.linkTitle }}
-  </mat-list-item>
-</mat-nav-list>
+      {{ item.linkTitle }}
+    </mat-list-item>
+  </mat-nav-list>
+</mat-card>
 <!-- <mat-nav-list>
   <mat-list-item routerLink="/admin/home">Home </mat-list-item>
   <mat-list-item routerLink="/admin/profile">profile </mat-list-item>

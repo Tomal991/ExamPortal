@@ -45,6 +45,7 @@ import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.com
 import { LoadAllQuizComponent } from './pages/user/load-all-quiz/load-all-quiz.component';
 import { InstuctionsOfQuizComponent } from './pages/user/instuctions-of-quiz/instuctions-of-quiz.component';
 import { QuizStartComponent } from './pages/user/quiz-start/quiz-start.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -97,7 +98,7 @@ import { QuizStartComponent } from './pages/user/quiz-start/quiz-start.component
     MatSelectModule,
     MatSidenavModule,
     CKEditorModule,
-  
+    MatProgressSpinnerModule
   ],
   
   providers: [authInterceptorProvider,],

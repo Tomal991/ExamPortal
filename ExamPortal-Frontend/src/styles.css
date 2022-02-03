@@ -50,3 +50,7 @@ body {
   margin-top: 10px !important;
   margin-bottom: 10px !important;
 }
+.dashboard {
+  background: rgb(226, 221, 221);
+  min-height: 100vh;
+}
