@@ -47,7 +47,7 @@ import { InstuctionsOfQuizComponent } from './pages/user/instuctions-of-quiz/ins
 import { QuizStartComponent } from './pages/user/quiz-start/quiz-start.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { UserNavbarComponent } from './pages/user-navbar/user-navbar.component';
-import { UserDemoComponent } from './pages/user-demo/user-demo.component';
+
 
 
 @NgModule({
@@ -77,7 +77,7 @@ import { UserDemoComponent } from './pages/user-demo/user-demo.component';
     InstuctionsOfQuizComponent,
     QuizStartComponent,
     UserNavbarComponent,
-    UserDemoComponent,
+    
     
   ],
   imports: [

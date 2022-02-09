@@ -1,8 +1,8 @@
-<mat-card>
-  <div class="mat-headline text-center">Add Quiz</div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 offset-md-2">
+<div class="container-fluid mt-2">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <mat-card>
+        <div class="mat-headline text-center mb-3">Add Quiz</div>
         <form (ngSubmit)="formSubmit()">
           <mat-form-field appearance="fill" class="full-width">
             <mat-label>Select Category</mat-label>
@@ -75,10 +75,10 @@
           <br />
 
           <button mat-raised-button color="primary" class="full-width">
-            Add quiz
+            <mat-icon>add</mat-icon>Add quiz
           </button>
         </form>
-      </div>
+      </mat-card>
     </div>
   </div>
-</mat-card>
+</div>
