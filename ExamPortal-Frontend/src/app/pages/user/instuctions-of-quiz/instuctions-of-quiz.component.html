@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-8 offset-md-2">
       <mat-card class="p-4">
-          <mat-card-title>Read the instructions carefully</mat-card-title>
+        <mat-card-title>Read the instructions carefully</mat-card-title>
         <div class="mb-4">One more step to go</div>
         <div>
           <mat-card-title>
@@ -37,7 +37,14 @@
             <li>Report will be generated in pdf form</li>
           </ul>
           <div class="container">
-            <button mat-raised-button color="primary" (click)="startQuiz()">Start</button>
+            <button
+              mat-raised-button
+              color="primary"
+              class="full-width"
+              (click)="startQuiz()"
+            >
+              Start
+            </button>
           </div>
         </mat-card-content>
       </mat-card>

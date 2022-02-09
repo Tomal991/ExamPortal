@@ -1,7 +1,7 @@
-<div class="container-fluid">
+<div class="container">
   <div class="mat-headline text-center">Available Quizzes</div>
   <div class="row">
-    <div class="col-md-4 mb-3" *ngFor="let quiz of quizzes">
+    <div class="col-lg-4 col-sm-6 mb-3" *ngFor="let quiz of quizzes">
       <mat-card class="click">
         <img src="../../../../assets/quiz.jpg" alt="" class="img" />
         <div class="text-center">
@@ -18,9 +18,15 @@
             <div>Marks {{ quiz.maxMarks }}</div>
           </div>
         </mat-card-content>
-        <mat-card-actions class="text-center">
-          <button mat-raised-button color="primary">view</button>
-          <button mat-raised-button color="primary" [routerLink]="'/user/instructions/'+quiz.qid">start</button>
+        <mat-card-actions>
+          <button
+            class="btn"
+            mat-raised-button
+            color="primary"
+            [routerLink]="'/user/instructions/' + quiz.qid"
+          >
+            view
+          </button>
         </mat-card-actions>
       </mat-card>
     </div>

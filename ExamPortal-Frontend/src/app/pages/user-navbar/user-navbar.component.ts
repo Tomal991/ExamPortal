@@ -7,12 +7,13 @@ import { Router } from '@angular/router';
 
 import { MatSidenav } from '@angular/material/sidenav';
 import { delay } from 'rxjs/operators';
+
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
+  selector: 'app-user-navbar',
+  templateUrl: './user-navbar.component.html',
+  styleUrls: ['./user-navbar.component.css'],
 })
-export class NavbarComponent implements OnInit {
+export class UserNavbarComponent implements OnInit {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
   isLoggedIn = false;

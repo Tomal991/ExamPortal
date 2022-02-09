@@ -23,7 +23,7 @@ import { AdminGuard } from './services/admin.guard';
 import { UserGuard } from './services/user.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: '', component: LoginComponent, pathMatch: 'full' },
   { path: 'signup', component: SignupComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent, pathMatch: 'full' },
 
@@ -35,10 +35,6 @@ const routes: Routes = [
       {
         path: 'home',
         component: AdminHomeComponent,
-      },
-      {
-        path: 'profile',
-        component: ProfileComponent,
       },
 
       { path: 'add-category', component: AddCategoryComponent },
@@ -71,6 +67,10 @@ const routes: Routes = [
     path: 'quizStart/:qid',
     component: QuizStartComponent,
     canActivate: [UserGuard],
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
   },
 ];
 

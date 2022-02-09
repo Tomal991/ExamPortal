@@ -9,7 +9,6 @@ import { LoginService } from 'src/app/services/login.service';
 export class SidebarComponent implements OnInit {
   listItems = [
     { linkTitle: 'Home ', link: '/admin/home', icon: 'home' },
-    { linkTitle: 'Profile', link: '/admin/profile', icon: 'account_circle' },
     { linkTitle: 'Category', link: '/admin/view-category', icon: 'category' },
     {
       linkTitle: 'Add Category',
@@ -22,7 +21,5 @@ export class SidebarComponent implements OnInit {
 
   constructor(private loginService: LoginService) {}
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 }

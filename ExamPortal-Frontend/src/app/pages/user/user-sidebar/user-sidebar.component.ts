@@ -9,10 +9,10 @@ import { CategoryService } from './../../../services/category.service';
 export class UserSidebarComponent implements OnInit {
   categories: any;
 
-  listItems = [
-    { linkTitle: 'Home ', link: '/user', icon: 'home' },
-    { linkTitle: 'All Quizzes', icon: 'account_circle' },
-  ];
+  // listItems = [
+  //   { linkTitle: 'Home ', link: '/user', icon: 'home' },
+  //   { linkTitle: 'All Quizzes', icon: 'account_circle' },
+  // ];
   constructor(private categoryService: CategoryService) {}
 
   ngOnInit(): void {

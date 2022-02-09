@@ -34,6 +34,7 @@ export class QuizStartComponent implements OnInit {
     this.questionService.getQuestionsOfQuizForUser(this.qid).subscribe(
       (data) => {
         this.questions = data;
+        console.log(this.questions);
         this.timer = this.questions.length * 2 * 60;
         this.questions.forEach((ques: any) => {
           ques['givenAnswer'] = '';
@@ -60,32 +61,34 @@ export class QuizStartComponent implements OnInit {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        this.isSubmit = true;
-        this.questions.forEach((ques: any) => {
-          if (ques.givenAnswer == ques.answer) {
-            this.correctAnswer++;
-            this.maximumMarks = this.questions[0].quiz.maxMarks;
-            let eachQuestionMark = this.maximumMarks / this.questions.length;
-            this.marksGot += eachQuestionMark;
-          }
-          if (ques.givenAnswer.trim() != '') {
-            this.attempted++;
-          }
-        });
-        console.log('correctAnswer:' + this.correctAnswer);
-        console.log('marks got:' + this.marksGot);
-        console.log(this.attempted);
-        console.log(this.questions);
+        this.evaluateQuiz();
       } else if (result.isDenied) {
         Swal.fire('Changes are not saved', '', 'info');
       }
     });
   }
-
+  evaluateQuiz() {
+    this.isSubmit = true;
+    this.questions.forEach((ques: any) => {
+      if (ques.givenAnswer == ques.answer) {
+        this.correctAnswer++;
+        this.maximumMarks = this.questions[0].quiz.maxMarks;
+        let eachQuestionMark = this.maximumMarks / this.questions.length;
+        this.marksGot += eachQuestionMark;
+      }
+      if (ques.givenAnswer.trim() != '') {
+        this.attempted++;
+      }
+    });
+    console.log('correctAnswer:' + this.correctAnswer);
+    console.log('marks got:' + this.marksGot);
+    console.log(this.attempted);
+    console.log(this.questions);
+  }
   startTimer() {
     let t = window.setInterval(() => {
       if (this.timer <= 0) {
-        this.submitQuiz();
+        this.evaluateQuiz();
         clearInterval(t);
       } else {
         this.timer--;
@@ -96,9 +99,11 @@ export class QuizStartComponent implements OnInit {
   getFormattedTime() {
     let mm = Math.floor(this.timer / 60);
     let ss = this.timer - mm * 60;
+    
+
     return `${mm} min : ${ss} sec`;
   }
-  print(){
-    window.print()
+  print() {
+    window.print();
   }
 }
