@@ -1,6 +1,6 @@
 import { LocationStrategy } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { QuestionService } from 'src/app/services/question.service';
 import Swal from 'sweetalert2';
 
@@ -12,17 +12,21 @@ import Swal from 'sweetalert2';
 export class QuizStartComponent implements OnInit {
   qid: any;
   questions: any;
-
   marksGot = 0;
   correctAnswer = 0;
   attempted = 0;
   maximumMarks = 0;
   isSubmit = false;
-  timer = 0;
+  timer: any;
+  counter: any;
+  interval: any;
+  value: any;
+  test: number = 0;
   constructor(
     private locationStrategy: LocationStrategy,
     private route: ActivatedRoute,
-    private questionService: QuestionService
+    private questionService: QuestionService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -30,12 +34,13 @@ export class QuizStartComponent implements OnInit {
     this.preventBackButton();
     this.loadQuestions();
   }
+
   loadQuestions() {
     this.questionService.getQuestionsOfQuizForUser(this.qid).subscribe(
       (data) => {
         this.questions = data;
         console.log(this.questions);
-        this.timer = this.questions.length * 2 * 60;
+
         this.questions.forEach((ques: any) => {
           ques['givenAnswer'] = '';
         });
@@ -69,6 +74,7 @@ export class QuizStartComponent implements OnInit {
   }
   evaluateQuiz() {
     this.isSubmit = true;
+    this.value = this.timer;
     this.questions.forEach((ques: any) => {
       if (ques.givenAnswer == ques.answer) {
         this.correctAnswer++;
@@ -80,26 +86,40 @@ export class QuizStartComponent implements OnInit {
         this.attempted++;
       }
     });
-    console.log('correctAnswer:' + this.correctAnswer);
-    console.log('marks got:' + this.marksGot);
-    console.log(this.attempted);
-    console.log(this.questions);
   }
   startTimer() {
-    let t = window.setInterval(() => {
-      if (this.timer <= 0) {
-        this.evaluateQuiz();
-        clearInterval(t);
+    this.timer = 303;
+    const exist = localStorage.getItem('counter');
+    if (exist) {
+      if (parseInt(exist) <= 0) {
+        this.value = this.timer;
       } else {
-        this.timer--;
+        this.value = localStorage.getItem('counter');
       }
+    } else {
+      this.value = this.timer;
+    }
+
+    this.counter = function () {
+      if (this.value <= 0) {
+        localStorage.setItem('counter', this.timer);
+        clearInterval(this.interval);
+
+        this.evaluateQuiz();
+      } else {
+        this.value = parseInt(this.value) - 1;
+        localStorage.setItem('counter', this.value);
+      }
+    };
+
+    this.interval = setInterval(() => {
+      this.counter();
     }, 1000);
   }
 
   getFormattedTime() {
-    let mm = Math.floor(this.timer / 60);
-    let ss = this.timer - mm * 60;
-    
+    let mm = Math.floor(this.value / 60);
+    let ss = this.value - mm * 60;
 
     return `${mm} min : ${ss} sec`;
   }
