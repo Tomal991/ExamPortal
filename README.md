@@ -1,6 +1,6 @@
 Project- 
 Exam Portal-
-Tech-Stack- Spring Boot,Hibernate,Angular,MySql,JWT-Spring Security
+Stack- Spring Boot,Hibernate,Angular,MySql,JWT-Spring Security
 
 #User/Student
 -user can signup and login-
