@@ -1,6 +1,6 @@
 Project- 
 - Exam Portal
-ack- Spring Boot,Hibernate,Angular,MySql,JWT-Spring Security
+- stack- Spring Boot,Hibernate,Angular,MySql,Spring Security,JWT token
 
 #User/Student
 - user can signup and login-
@@ -16,4 +16,8 @@ ack- Spring Boot,Hibernate,Angular,MySql,JWT-Spring Security
 - Admin can add Questions based on Quiz-topic
 - Admin can view,update,delete Category, Quiz and Questions
 
-The most difficult technical challenge of this project was to implement security.Json Web token was used for authentication.BCryptPasswordEncoder(spring security) was used to encrypt the password and Authguard(angular) is used to protect the routes.
+- Json Web token was used for authentication.
+- BCryptPasswordEncoder(spring security) was used to encrypt the password 
+- Authguard(angular) is used to protect the routes.
+
+#The most difficult technical challenge of this project was to implement security.
