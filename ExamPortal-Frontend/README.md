@@ -13,7 +13,15 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
+## Project Description
+#User/Student
+- User can signup and login-
+- User can see their Profile Information
+- User can select Quiz based on Category (If it is active)
+- follow the instructions and can attempt multiple times
+- answer the questions within the time because there is a timer
+- can see their marks and number of correct answers after submit
+- auto submit after time has finished
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
