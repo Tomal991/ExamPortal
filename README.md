@@ -3,7 +3,7 @@ Project-
 - stack- Spring Boot,Hibernate,Angular,MySql,Spring Security,JWT token
 
 #User/Student
-- User can signup and login-
+- User can signup and login
 - User can see their Profile Information
 - User can select Quiz based on Category (If it is active)
 - follow the instructions and can attempt multiple times
